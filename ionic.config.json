@@ -1,0 +1,8 @@
+{
+  "name": "slide-menu",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
