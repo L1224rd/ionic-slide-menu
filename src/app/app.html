@@ -1,7 +1,7 @@
 <ion-content id="app-content">
     <div style="height: 100%; position: relative;">
-        <div class="scrollmenu">
-            <a *ngFor="let page of pages" (click)="gotoPage(page.component)" style="padding: 10px;">{{page.name}}</a>
+        <div id="scrollmenu">
+            <a *ngFor="let page of pages" (click)="gotoPage(page)" style="padding: 10px;">{{page.name}}</a>
         </div>
     </div>
 </ion-content>

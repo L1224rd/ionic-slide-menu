@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
+import { ToolsPage } from '../pages/tools/tools';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,14 +14,14 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any = HomePage;
   pages =  [
-    {name: 'Home', component: HomePage},
-    {name: 'Profile', component: ProfilePage},
-    {name: 'Games', component: ProfilePage},
-    {name: 'Animals', component: ProfilePage},
-    {name: 'Photos', component: ProfilePage},
-    {name: 'Video', component: ProfilePage},
-    {name: 'Map', component: ProfilePage},
-    {name: 'Exit', component: ProfilePage}
+    {name: 'Home', component: HomePage, scroll: 1},
+    {name: 'Profile', component: ProfilePage, scroll: 2},
+    {name: 'Tools', component: ToolsPage, scroll: 3},
+    {name: 'Chat', component: ProfilePage, scroll: 4},
+    {name: 'Photos', component: ProfilePage, scroll: 5},
+    {name: 'Video', component: ProfilePage, scroll: 6},
+    {name: 'Map', component: ProfilePage, scroll: 7},
+    {name: 'Exit', component: ProfilePage, scroll: 8}
   ];
 
   constructor(
@@ -37,7 +38,11 @@ export class MyApp {
   } 
 
   gotoPage(page){
-    this.nav.setRoot(page);
+    this.nav.setRoot(page.component);
+    let scroll = document.getElementById('scrollmenu');
+    scroll.scrollLeft = 2000;
+    let each = scroll.scrollLeft/(this.pages.length - 5);
+    scroll.scrollLeft = (page.scroll-1)*each - each*2;
   }
 }
 
