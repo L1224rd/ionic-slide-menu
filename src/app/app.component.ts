@@ -12,8 +12,16 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any = HomePage;
-  homePage:any =  HomePage;
-  profilePage:any =  ProfilePage;
+  pages =  [
+    {name: 'Home', component: HomePage},
+    {name: 'Profile', component: ProfilePage},
+    {name: 'Games', component: ProfilePage},
+    {name: 'Animals', component: ProfilePage},
+    {name: 'Photos', component: ProfilePage},
+    {name: 'Video', component: ProfilePage},
+    {name: 'Map', component: ProfilePage},
+    {name: 'Exit', component: ProfilePage}
+  ];
 
   constructor(
     platform: Platform,
@@ -29,7 +37,7 @@ export class MyApp {
   } 
 
   gotoPage(page){
-    this.nav.setRoot(this[page]);
+    this.nav.setRoot(page);
   }
 }
 
